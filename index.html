@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const listOfProducts = [{
+    productName: "TV",
+    quantity: 10,
+    description: "television"
+  },
+  {
+    productName: "AC",
+    quantity: 5,
+    description: "air conditioner"
+  },
+  {
+    productName: "TV",
+    quantity: 10,
+    description: "television"
+  },
+  {
+    productName: "AC",
+    quantity: 5,
+    description: "air conditioner"
+  },
+  {
+    productName: "FAN",
+    quantity: 10,
+    description: "Ceiling Fan"
+  }
+];
+
+
+function getUniqueProductCount(listOfProducts){
+  let items = {}
+  for(let i=0; i<listOfProducts.length; i++){
+    
+    if(items[listOfProducts[i].productName] == undefined){
+      items[listOfProducts[i].productName] =1
+    }else{
+    items[listOfProducts[i].productName]++
+    }
+  }
+    return items
+    }
+    
+    
+    
+    let items = getUniqueProductCount(listOfProducts)
+console.log(items)
+function getUniquePrducts(listOfProducts){
+    let items = []
+    for(let i=0; i<listOfProducts.length; i++){
+       CheckData(items , listOfProducts[i])
+    }
+   console.log(items)
+  }
+  
+  
+  function CheckData(value , el){
+     let index = value.findIndex(item => item.productName === el.productName)
+  
+    if(index === -1){
+      value.push(el)
+    }else{
+      value[index].quantity+=el.quantity
+    }
+    return value
+  }
+  
+  getUniquePrducts(listOfProducts)
+</script>
